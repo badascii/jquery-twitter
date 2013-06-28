@@ -9,6 +9,12 @@ $(document).ready(function() {
     var thisTweet = $(this).text('.tweet');
     favorite(thisTweet);
   });
+
+  $(document).on('scroll', function() {
+    if ($(document).scrollTop() > 2000) {
+      scrolly();
+    }
+  });
 });
 
 var grabTweets = function(username) {
@@ -30,4 +36,10 @@ var grabTweets = function(username) {
 
 var favorite = function(tweet) {
   $(tweet).insertAfter('.span8');
+};
+
+var scrolly = function() {
+  console.log($(document).scrollTop());
+  $('.button').raptorize();
+
 };
